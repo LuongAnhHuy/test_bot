@@ -1,4 +1,5 @@
 package Trivio.defs;
+import Trivio.steps.PersonalSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,15 +16,18 @@ public class HomeTest extends BaseTest {
 
     @Steps
     HomeSteps homeSteps;
+
+    @Steps
+    PersonalSteps personalSteps;
     private int currentCoins;
 
     @Test
-    public void openTrivioHomePage() {
+    public void openTrivioHomePage() throws InterruptedException {
         homeSteps.openPage();
         homeSteps.switchToWindowHandle();
         currentCoins = homeSteps.currentCoins();
         if (homeSteps.isDisplayedNameText()) {
-            if (homeSteps.getNameText().equals("Anh Huy Luong")) {
+            if (homeSteps.getNameText().equals("Komputah Hakka")) {
                 homeSteps.clickToButton();
             }
         }
