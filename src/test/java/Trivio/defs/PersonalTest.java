@@ -19,7 +19,7 @@ public class PersonalTest extends BaseTest {
     PersonalSteps personalSteps;
 
     @Test
-    public void openTrivioHomePage() throws InterruptedException {
+    public void openTrivioHomePage(){
         homeSteps.openPage();
         homeSteps.switchToWindowHandle();
         if (homeSteps.isDisplayedNameText()) {
