@@ -56,6 +56,11 @@ public class BasePage extends PageObject {
         jsExecutor.executeScript("arguments[0].click();", element);
     }
 
+    public void clickToElementByJS(WebElement element) {
+        jsExecutor = (JavascriptExecutor) getDriver();
+        jsExecutor.executeScript("arguments[0].click();", element);
+    }
+
     public void sendKeyToElementByJS(WebElementFacade element, String value) {
         jsExecutor = (JavascriptExecutor) getDriver();
         jsExecutor.executeScript("arguments[0].setAttribute('value'," + value + "'))", element);
@@ -118,6 +123,10 @@ public class BasePage extends PageObject {
 
     public boolean isEnabledElement(WebElement item) {
         return item.isEnabled();
+    }
+
+    public boolean isDisplayedElement(WebElement item) {
+        return item.isDisplayed();
     }
 
     public void clickItemInListItem(List<WebElement> allItem, String expected) {

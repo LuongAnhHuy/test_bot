@@ -18,11 +18,10 @@ public class HomeSteps {
         return getDefaultCoin() + coinMax;
     }
 
-
     @Step
     public void openPage() {
-//        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
-        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
+        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
+//        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
         homePages.clickToURL();
     }
 
@@ -61,5 +60,16 @@ public class HomeSteps {
     @Step
     public void clickToClaimButton() {
         homePages.clickToClaimButton();
+    }
+
+    @Step
+    public boolean isDisplayedDailyHeader() {
+        return homePages.isDisplayedDailyHeader();
+
+    }
+
+    @Step
+    public void clickToClaimDailyButton() {
+        homePages.clickToClaimDailyButton();
     }
 }

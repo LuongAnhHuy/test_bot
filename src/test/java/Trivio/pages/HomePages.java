@@ -20,6 +20,12 @@ public class HomePages extends BasePage {
     @FindBy(xpath = "//div[@class='relative flex space-x-3']//following-sibling::button")
     WebElement claimButton;
 
+    @FindBy(xpath = "//h2[@id='radix-:r4:']")
+    WebElement dailyHeader;
+
+    @FindBy(xpath = "//div[@class='mt-7 flex items-center justify-center']//button")
+    WebElement claimDailyButton;
+
     public void clickToURL() {
         waitUntilElementVisibleByExplicit(trivioURL);
         trivioURL.click();
@@ -32,7 +38,7 @@ public class HomePages extends BasePage {
 
     public void clickToButton() {
         waitUntilElementVisibleByExplicit(tapButton);
-        tapButton.click();
+        clickToElementByJS(tapButton);
     }
 
     public String getNameText() {
@@ -58,5 +64,19 @@ public class HomePages extends BasePage {
     public void clickToClaimButton() {
         waitUntilElementClickableByExplicit(claimButton);
         clickToElement(claimButton);
+    }
+
+    public boolean isDisplayedDailyHeader() {
+//        waitUntilElementVisibleByExplicit(dailyHeader);
+        return isDisplayedElement(dailyHeader);
+    }
+//    public boolean isNotDisplayedDailyHeader() {
+////        waitUntilElementVisibleByExplicit(dailyHeader);
+//        return !dailyHeader.isDisplayed();
+//    }
+
+    public void clickToClaimDailyButton() {
+//        waitUntilElementClickableByExplicit(claimDailyButton);
+        clickToElementByJS(claimDailyButton);
     }
 }
