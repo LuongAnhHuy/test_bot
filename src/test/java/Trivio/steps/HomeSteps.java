@@ -22,7 +22,7 @@ public class HomeSteps {
     @Step
     public void openPage() {
 //        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
-        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
+        homePages.openUrl("file:///D:/telegram%20download/link.html");
         homePages.clickToURL();
     }
 
@@ -41,6 +41,11 @@ public class HomeSteps {
     @Step
     public String getNameText() {
         return homePages.getNameText();
+    }
+
+    @Step
+    public void clickNameText() {
+        homePages.clickNameText();
     }
 
     @Step

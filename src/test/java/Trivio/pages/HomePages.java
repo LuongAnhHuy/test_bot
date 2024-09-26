@@ -20,6 +20,8 @@ public class HomePages extends BasePage {
     @FindBy(xpath = "//div[@class='relative flex space-x-3']//following-sibling::button")
     WebElement claimButton;
 
+
+
     public void clickToURL() {
         waitUntilElementVisibleByExplicit(trivioURL);
         trivioURL.click();
@@ -38,6 +40,11 @@ public class HomePages extends BasePage {
     public String getNameText() {
         waitUntilElementVisibleByExplicit(nameText);
         return getTextToElement(nameText);
+    }
+
+    public void clickNameText() {
+        waitUntilElementVisibleByExplicit(nameText);
+        nameText.click();
     }
 
     public boolean isDisplayedNameText() {
