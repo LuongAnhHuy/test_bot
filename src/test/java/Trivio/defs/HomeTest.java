@@ -23,7 +23,6 @@ public class HomeTest extends BaseTest {
         homeSteps.openPage();
         homeSteps.switchToWindowHandle();
 
-        System.out.println(homeSteps.isDisplayedDailyHeader());
         if (firstLogin) {
             homeSteps.isDisplayedDailyHeader();
             homeSteps.clickToClaimDailyButton();

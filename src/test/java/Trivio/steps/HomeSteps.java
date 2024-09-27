@@ -22,10 +22,6 @@ public class HomeSteps {
     public void openPage() {
         homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
 //        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
-//        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
-        homePages.openUrl("file:///D:/telegram%20download/link.html");
-        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
-//        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
         homePages.clickToURL();
     }
 
