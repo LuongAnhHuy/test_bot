@@ -70,11 +70,15 @@ public class HomeSteps {
     @Step
     public boolean isDisplayedDailyHeader() {
         return homePages.isDisplayedDailyHeader();
-
     }
 
     @Step
     public void clickToClaimDailyButton() {
         homePages.clickToClaimDailyButton();
+    }
+
+    @Step
+    public boolean isDisplayedClaimAfterText() {
+        return homePages.isDisplayedClaimAfterText();
     }
 }

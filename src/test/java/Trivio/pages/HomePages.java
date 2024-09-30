@@ -4,6 +4,8 @@ import Trivio.common.BasePage;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class HomePages extends BasePage {
     @FindBy(xpath = "//div[@class='text-stroke-primary font-riffic text-5xl font-bold']")
     WebElement coinText;
@@ -21,10 +23,13 @@ public class HomePages extends BasePage {
     WebElement claimButton;
 
     @FindBy(xpath = "//h2[@id='radix-:r4:']")
-    WebElement dailyHeader;
+    List<WebElement> dailyHeader;
 
     @FindBy(xpath = "//div[@class='mt-7 flex items-center justify-center']//button")
     WebElement claimDailyButton;
+
+    @FindBy(xpath = "//p[@class='text-sm' and text()='Claim after']")
+    WebElement claimAfterText;
 
     public void clickToURL() {
         waitUntilElementVisibleByExplicit(trivioURL);
@@ -38,7 +43,7 @@ public class HomePages extends BasePage {
 
     public void clickToButton() {
         waitUntilElementVisibleByExplicit(tapButton);
-        clickToElementByJS(tapButton);
+        clickToElement(tapButton);
     }
 
     public String getNameText() {
@@ -57,12 +62,12 @@ public class HomePages extends BasePage {
     }
 
     public boolean isEnabledClaimButton() {
-        waitUntilElementVisibleByExplicit(claimButton);
+        waitUntilElementClickableByExplicit(claimButton);
         return claimButton.isEnabled();
     }
 
     public boolean isNotEnabledClaimButton() {
-        waitUntilElementVisibleByExplicit(claimButton);
+        waitUntilElementClickableByExplicit(claimButton);
         return !claimButton.isEnabled();
     }
 
@@ -73,15 +78,16 @@ public class HomePages extends BasePage {
 
     public boolean isDisplayedDailyHeader() {
 //        waitUntilElementVisibleByExplicit(dailyHeader);
-        return isDisplayedElement(dailyHeader);
+        return dailyHeader.size() > 0;
     }
-//    public boolean isNotDisplayedDailyHeader() {
-////        waitUntilElementVisibleByExplicit(dailyHeader);
-//        return !dailyHeader.isDisplayed();
-//    }
 
     public void clickToClaimDailyButton() {
 //        waitUntilElementClickableByExplicit(claimDailyButton);
         clickToElementByJS(claimDailyButton);
+    }
+
+    public boolean isDisplayedClaimAfterText() {
+        waitUntilElementVisibleByExplicit(claimAfterText);
+        return claimAfterText.isDisplayed();
     }
 }
