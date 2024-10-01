@@ -33,8 +33,11 @@ public class TasksPages extends BasePage {
     @FindBy(xpath = "//div[@class = 'text-sm font-semibold']")
     WebElement taskNotificationText;
 
-    @FindBy(xpath = "//button[@type = 'button']")
+    @FindBy(xpath = "//button[@type]")
     WebElement closeTaskPopupButton;
+
+    @FindBy(xpath = "//html")
+    WebElement outSidePopup;
 
     public String getTaskPageTitle() {
         waitUntilElementVisibleByExplicit(taskPageTitle);
@@ -53,7 +56,9 @@ public class TasksPages extends BasePage {
     public boolean checkTaskDone(String taskName) {
         for (WebElement task : taskList) {
             if (task.getText().contains(taskName)) {
-                return task.findElement(xpath(".//img")).isDisplayed();
+                waitUntilElementVisibleByExplicit(task.findElement(xpath(".//img")));
+                System.out.println("Task is done");
+                return true;
             }
         }
         return false;
@@ -84,9 +89,9 @@ public class TasksPages extends BasePage {
         return taskNotificationText.getText();
     }
 
-    public void clickCloseTaskPopupButton() {
-        waitUntilElementVisibleByExplicit(closeTaskPopupButton);
-        closeTaskPopupButton.click();
+    public void clickOutsideTaskPopupButton() {
+        waitUntilElementVisibleByExplicit(outSidePopup);
+        outSidePopup.click();
     }
 
     public String getTaskRewardText() {

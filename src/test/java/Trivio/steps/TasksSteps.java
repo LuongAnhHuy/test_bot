@@ -48,8 +48,8 @@ public class TasksSteps {
     }
 
     @Step
-    public void clickCloseTaskPopupButton() {
-        tasksPages.clickCloseTaskPopupButton();
+    public void closeTasksPopup() {
+        tasksPages.clickOutsideTaskPopupButton();
     }
 
     @Step

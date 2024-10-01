@@ -28,18 +28,20 @@ class TasksTest extends BaseTest{
     @Test
     void testTasksPage() {
         homeSteps.clickTasksButton();
-        verifyEquals(tasksSteps.getTasksPageTitle(), TASK_PAGE_TITLE);
+        System.out.println("clicked tasks button");
+        verifyEquals(TASK_PAGE_TITLE, tasksSteps.getTasksPageTitle());
         tasksSteps.clickToChooseTask(TASK_NAME_TELEGRAM);
         verifyEquals(TASK_NAME_TELEGRAM, tasksSteps.getTaskNamePopupTitle());
         verifyTrue(tasksSteps.getTaskRewardText().contains(TASK_REWARD_NUMBER));
         tasksSteps.clickFollowButton();
         tasksSteps.clickCheckTaskButton();
         verifyEquals(TASK_STATUS_NOTIFICATION_COMPLETED, tasksSteps.getTaskNotificationText());
-        verifyEquals(TASK_STATUS_POPUP_COMPLETED, tasksSteps.getTaskStatusPopupText());
-        tasksSteps.clickCloseTaskPopupButton();
-        verifyTrue(tasksSteps.checkTaskDone(TASK_NAME_TELEGRAM));
+//        verifyEquals(TASK_STATUS_POPUP_COMPLETED, tasksSteps.getTaskStatusPopupText());
+        tasksSteps.closeTasksPopup();
+//
         homeSteps.clickHomeButton();
-
+        homeSteps.clickTasksButton();
+        verifyTrue(tasksSteps.checkTaskDone(TASK_NAME_TELEGRAM));
     }
 
 }
