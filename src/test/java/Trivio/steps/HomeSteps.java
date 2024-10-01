@@ -6,20 +6,15 @@ import net.serenitybdd.annotations.Step;
 public class HomeSteps {
     HomePages homePages;
 
-    private final int coinMax = 1;
+    private final Integer coinMax = 1;
 
     @Step
-    public int getDefaultCoin() {
-        return Integer.parseInt(homePages.getTextCoin());
+    public Integer getDefaultCoin() {
+        return Integer.parseInt(homePages.getTextCoin().replace(",",""));
     }
 
     @Step
-    public int totalDailyCoins() {
-        return getDefaultCoin() + 50;
-    }
-
-    @Step
-    public int currentCoins() {
+    public Integer currentCoins() {
         return getDefaultCoin() + coinMax;
     }
 

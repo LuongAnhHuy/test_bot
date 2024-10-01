@@ -2,7 +2,6 @@ package Trivio.testcases;
 
 import net.serenitybdd.core.exceptions.NoSuchElementException;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import Trivio.common.BaseTest;
@@ -16,7 +15,7 @@ public class HomeTest extends BaseTest {
 
     @Steps
     HomeSteps homeSteps;
-    private int currentCoins;
+    private Integer currentCoins;
 
     @BeforeEach
     public void openTrivioHomePage() {
@@ -27,7 +26,7 @@ public class HomeTest extends BaseTest {
     @Test
     public void TC_01_Claim_Daily_Reward() throws InterruptedException {
         try {
-            Thread.sleep(6000);
+            Thread.sleep(5000);
             if (homeSteps.isDisplayedDailyHeader()) {
                 homeSteps.clickToClaimDailyButton();
             } else {

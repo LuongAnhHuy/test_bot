@@ -12,6 +12,7 @@ public class SQLServerJDBC {
         String password = "sWK4qO3sLDuC1qe";
         return getSQLServerConnection(hostName, sqlInstanceName, database, userName, password);
     }
+
     public static Connection getSQLServerConnection(String hostName, String sqlInstanceName, String database, String userName, String password) {
         Connection conn = null;
         try {
