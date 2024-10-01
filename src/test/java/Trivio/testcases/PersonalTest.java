@@ -1,4 +1,4 @@
-package Trivio.defs;
+package Trivio.testcases;
 
 import Trivio.common.BaseTest;
 import Trivio.steps.HomeSteps;
