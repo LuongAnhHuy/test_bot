@@ -224,13 +224,6 @@ public class BasePage extends PageObject {
         item.sendKeys(projectPath + "\\uploadFiles\\" + imageName);
     }
 
-    protected String getDynamicXpath(String locatorType, String... dynamicValue) {
-        if (locatorType.startsWith("xpath=") || locatorType.startsWith("XPATH") || locatorType.startsWith("Xpath")) {
-            locatorType = String.format(locatorType, (Object[]) dynamicValue);
-        }
-        return locatorType;
-    }
-
     protected void uploadFileTest(WebElementFacade elemt, String imageName) {
         File file = new File(projectPath + "\\uploadFiles\\" + imageName);
         elemt.sendKeys(file.getAbsolutePath());

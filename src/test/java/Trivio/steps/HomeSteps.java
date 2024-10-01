@@ -14,16 +14,17 @@ public class HomeSteps {
     }
 
     @Step
+    public int totalDailyCoins() {
+        return getDefaultCoin() + 50;
+    }
+
+    @Step
     public int currentCoins() {
         return getDefaultCoin() + coinMax;
     }
 
     @Step
     public void openPage() {
-        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
-//        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
-//        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
-        homePages.openUrl("file:///D:/telegram%20download/link.html");
         homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
 //        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
         homePages.clickToURL();
@@ -74,11 +75,26 @@ public class HomeSteps {
     @Step
     public boolean isDisplayedDailyHeader() {
         return homePages.isDisplayedDailyHeader();
-
     }
 
     @Step
     public void clickToClaimDailyButton() {
         homePages.clickToClaimDailyButton();
     }
+
+    @Step
+    public boolean isDisplayedClaimAfterText() {
+        return homePages.isDisplayedClaimAfterText();
+    }
+
+    @Step
+    public void clickLanguageButton() {
+        homePages.clickLanguageButton();
+    }
+
+    @Step
+    public String getLanguageButtonText() {
+        return homePages.getLanguageButtonText();
+    }
+
 }

@@ -2,7 +2,10 @@ package Trivio.pages;
 
 import Trivio.common.BasePage;
 import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class HomePages extends BasePage {
     @FindBy(xpath = "//div[@class='text-stroke-primary font-riffic text-5xl font-bold']")
@@ -21,10 +24,16 @@ public class HomePages extends BasePage {
     WebElement claimButton;
 
     @FindBy(xpath = "//h2[@id='radix-:r4:']")
-    WebElement dailyHeader;
+    List<WebElementFacade> dailyHeader;
 
     @FindBy(xpath = "//div[@class='mt-7 flex items-center justify-center']//button")
     WebElement claimDailyButton;
+
+    @FindBy(xpath = "//p[@class='text-sm' and text()='Claim after']")
+    WebElement claimAfterText;
+
+    @FindBy(xpath = "//button[contains(@class, 'h-9 w-9') and @style[not(string())]]")
+    WebElement languageButton;
 
     public void clickToURL() {
         waitUntilElementVisibleByExplicit(trivioURL);
@@ -38,7 +47,7 @@ public class HomePages extends BasePage {
 
     public void clickToButton() {
         waitUntilElementVisibleByExplicit(tapButton);
-        clickToElementByJS(tapButton);
+        clickToElement(tapButton);
     }
 
     public String getNameText() {
@@ -57,12 +66,12 @@ public class HomePages extends BasePage {
     }
 
     public boolean isEnabledClaimButton() {
-        waitUntilElementVisibleByExplicit(claimButton);
+        waitUntilElementClickableByExplicit(claimButton);
         return claimButton.isEnabled();
     }
 
     public boolean isNotEnabledClaimButton() {
-        waitUntilElementVisibleByExplicit(claimButton);
+        waitUntilElementClickableByExplicit(claimButton);
         return !claimButton.isEnabled();
     }
 
@@ -72,16 +81,26 @@ public class HomePages extends BasePage {
     }
 
     public boolean isDisplayedDailyHeader() {
-//        waitUntilElementVisibleByExplicit(dailyHeader);
-        return isDisplayedElement(dailyHeader);
+        return dailyHeader.size() > 0;
     }
-//    public boolean isNotDisplayedDailyHeader() {
-////        waitUntilElementVisibleByExplicit(dailyHeader);
-//        return !dailyHeader.isDisplayed();
-//    }
 
     public void clickToClaimDailyButton() {
-//        waitUntilElementClickableByExplicit(claimDailyButton);
-        clickToElementByJS(claimDailyButton);
+        waitUntilElementClickableByExplicit(claimDailyButton);
+        clickToElement(claimDailyButton);
+    }
+
+    public boolean isDisplayedClaimAfterText() {
+        waitUntilElementVisibleByExplicit(claimAfterText);
+        return claimAfterText.isDisplayed();
+    }
+
+    public void clickLanguageButton() {
+        waitUntilElementVisibleByExplicit(languageButton);
+        clickToElement(languageButton);
+    }
+
+    public String getLanguageButtonText() {
+        waitUntilElementVisibleByExplicit(languageButton);
+        return getTextToElement(languageButton);
     }
 }
