@@ -26,6 +26,9 @@ public class HomePages extends BasePage {
     @FindBy(xpath = "//div[@class='mt-7 flex items-center justify-center']//button")
     WebElement claimDailyButton;
 
+    @FindBy(xpath = "//button[contains(@class, 'h-9 w-9') and @style[not(string())]]")
+    WebElement languageButton;
+
     public void clickToURL() {
         waitUntilElementVisibleByExplicit(trivioURL);
         trivioURL.click();
@@ -83,5 +86,15 @@ public class HomePages extends BasePage {
     public void clickToClaimDailyButton() {
 //        waitUntilElementClickableByExplicit(claimDailyButton);
         clickToElementByJS(claimDailyButton);
+    }
+
+    public void clickLanguageButton() {
+        waitUntilElementVisibleByExplicit(languageButton);
+        clickToElement(languageButton);
+    }
+
+    public String getLanguageButtonText() {
+        waitUntilElementVisibleByExplicit(languageButton);
+        return getTextToElement(languageButton);
     }
 }

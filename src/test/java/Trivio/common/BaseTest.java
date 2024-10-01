@@ -10,7 +10,6 @@ public class BaseTest {
     public BaseTest(){
         logger = LogManager.getLogger(getClass());
     }
-
     protected boolean verifyTrue(boolean condition){
         boolean pass = true;
         try {

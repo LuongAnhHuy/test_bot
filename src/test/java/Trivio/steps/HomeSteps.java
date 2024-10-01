@@ -74,11 +74,21 @@ public class HomeSteps {
     @Step
     public boolean isDisplayedDailyHeader() {
         return homePages.isDisplayedDailyHeader();
-
     }
 
     @Step
     public void clickToClaimDailyButton() {
         homePages.clickToClaimDailyButton();
     }
+
+    @Step
+    public void clickLanguageButton() {
+        homePages.clickLanguageButton();
+    }
+
+    @Step
+    public String getLanguageButtonText() {
+        return homePages.getLanguageButtonText();
+    }
+
 }

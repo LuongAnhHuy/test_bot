@@ -1,9 +1,7 @@
 package Trivio.defs;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import Trivio.common.BaseTest;
 import Trivio.steps.HomeSteps;
 import net.serenitybdd.annotations.Steps;
