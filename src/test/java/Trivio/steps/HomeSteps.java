@@ -86,4 +86,15 @@ public class HomeSteps {
     public boolean isDisplayedClaimAfterText() {
         return homePages.isDisplayedClaimAfterText();
     }
+
+    @Step
+    public void clickLanguageButton() {
+        homePages.clickLanguageButton();
+    }
+
+    @Step
+    public String getLanguageButtonText() {
+        return homePages.getLanguageButtonText();
+    }
+
 }

@@ -26,7 +26,7 @@ public class PersonalTest extends BaseTest {
             homeSteps.clickNameText();
         }
 
-        if(personalSteps.getUserNameText().equals(USER_NAME_TITLE)){
+        if (personalSteps.getUserNameText().equals(USER_NAME_TITLE)){
             personalSteps.clickConnectTonWalletButton();
             if (personalSteps.isDisplayedWalletQrImage()) {
                 personalSteps.clickWalletQrCloseButton();
@@ -35,5 +35,4 @@ public class PersonalTest extends BaseTest {
             verifyEquals(personalSteps.getFrensPageText(), FRENS_PAGE_TITLE);
         }
     }
-
 }

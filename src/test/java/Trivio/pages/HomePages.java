@@ -32,6 +32,9 @@ public class HomePages extends BasePage {
     @FindBy(xpath = "//p[@class='text-sm' and text()='Claim after']")
     WebElement claimAfterText;
 
+    @FindBy(xpath = "//button[contains(@class, 'h-9 w-9') and @style[not(string())]]")
+    WebElement languageButton;
+
     public void clickToURL() {
         waitUntilElementVisibleByExplicit(trivioURL);
         trivioURL.click();
@@ -89,5 +92,15 @@ public class HomePages extends BasePage {
     public boolean isDisplayedClaimAfterText() {
         waitUntilElementVisibleByExplicit(claimAfterText);
         return claimAfterText.isDisplayed();
+    }
+
+    public void clickLanguageButton() {
+        waitUntilElementVisibleByExplicit(languageButton);
+        clickToElement(languageButton);
+    }
+
+    public String getLanguageButtonText() {
+        waitUntilElementVisibleByExplicit(languageButton);
+        return getTextToElement(languageButton);
     }
 }
