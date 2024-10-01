@@ -26,8 +26,14 @@ public class HomePages extends BasePage {
     @FindBy(xpath = "//div[@class='mt-7 flex items-center justify-center']//button")
     WebElement claimDailyButton;
 
-    @FindBy(xpath = "//button[contains(@class, 'h-9 w-9') and @style[not(string())]]")
+    @FindBy(xpath = "//div[@class='flex space-x-[6px]']/button[last()]")
     WebElement languageButton;
+
+    @FindBy(xpath = "//a[@href='#']")
+    WebElement homeButton;
+
+    @FindBy(xpath = "//a[@href='#task']")
+    WebElement taskButton;
 
     public void clickToURL() {
         waitUntilElementVisibleByExplicit(trivioURL);
@@ -97,4 +103,15 @@ public class HomePages extends BasePage {
         waitUntilElementVisibleByExplicit(languageButton);
         return getTextToElement(languageButton);
     }
+
+    public void clickTasksButton() {
+        waitUntilElementVisibleByExplicit(taskButton);
+        clickToElement(taskButton);
+    }
+
+    public void clickHomeButton() {
+        waitUntilElementVisibleByExplicit(homeButton);
+        clickToElement(homeButton);
+    }
+
 }
