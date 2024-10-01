@@ -14,6 +14,11 @@ public class HomeSteps {
     }
 
     @Step
+    public int totalDailyCoins() {
+        return getDefaultCoin() + 50;
+    }
+
+    @Step
     public int currentCoins() {
         return getDefaultCoin() + coinMax;
     }

@@ -2,6 +2,7 @@ package Trivio.pages;
 
 import Trivio.common.BasePage;
 import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class HomePages extends BasePage {
     WebElement claimButton;
 
     @FindBy(xpath = "//h2[@id='radix-:r4:']")
-    List<WebElement> dailyHeader;
+    List<WebElementFacade> dailyHeader;
 
     @FindBy(xpath = "//div[@class='mt-7 flex items-center justify-center']//button")
     WebElement claimDailyButton;
@@ -77,13 +78,12 @@ public class HomePages extends BasePage {
     }
 
     public boolean isDisplayedDailyHeader() {
-//        waitUntilElementVisibleByExplicit(dailyHeader);
         return dailyHeader.size() > 0;
     }
 
     public void clickToClaimDailyButton() {
-//        waitUntilElementClickableByExplicit(claimDailyButton);
-        clickToElementByJS(claimDailyButton);
+        waitUntilElementClickableByExplicit(claimDailyButton);
+        clickToElement(claimDailyButton);
     }
 
     public boolean isDisplayedClaimAfterText() {
