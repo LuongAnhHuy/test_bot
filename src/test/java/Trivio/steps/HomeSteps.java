@@ -22,6 +22,7 @@ public class HomeSteps {
     public void openPage() {
         homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
 //        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
+//        homePages.openUrl("D:\\telegram download\\link.html");
         homePages.clickToURL();
     }
 
@@ -90,6 +91,16 @@ public class HomeSteps {
     @Step
     public String getLanguageButtonText() {
         return homePages.getLanguageButtonText();
+    }
+
+    @Step
+    public void clickTasksButton() {
+        homePages.clickTasksButton();
+    }
+
+    @Step
+    public void clickHomeButton() {
+        homePages.clickHomeButton();
     }
 
 }
