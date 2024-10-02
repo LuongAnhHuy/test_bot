@@ -33,8 +33,8 @@ public class TasksPages extends BasePage {
     @FindBy(xpath = "//div[@class = 'text-sm font-semibold']")
     WebElement taskNotificationText;
 
-    @FindBy(xpath = "//button[@type]")
-    WebElement closeTaskPopupButton;
+//    @FindBy(xpath = "//button[@type]")
+//    WebElement closeTaskPopupButton;
 
     @FindBy(xpath = "//html")
     WebElement outSidePopup;
@@ -89,7 +89,7 @@ public class TasksPages extends BasePage {
         return taskNotificationText.getText();
     }
 
-    public void clickOutsideTaskPopupButton() {
+    public void closeTaskPopupButton() {
         waitUntilElementVisibleByExplicit(outSidePopup);
         outSidePopup.click();
     }

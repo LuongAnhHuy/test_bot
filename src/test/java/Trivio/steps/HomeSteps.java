@@ -1,6 +1,5 @@
 package Trivio.steps;
 
-import Trivio.common.ExecuteDatabase;
 import Trivio.common.PostgreJDBC;
 import Trivio.pages.HomePages;
 import net.serenitybdd.annotations.Step;
@@ -8,9 +7,9 @@ import net.serenitybdd.annotations.Step;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.HashMap;
 
-public class HomeSteps implements ExecuteDatabase {
+public class HomeSteps {
     HomePages homePages;
 
     private final Integer coinMax = 1;
@@ -27,9 +26,9 @@ public class HomeSteps implements ExecuteDatabase {
 
     @Step
     public void openPage() {
-        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
+//        homePages.openUrl("file:///C:/Users/huy.luong/Desktop/test-bot.html");
 //        homePages.openUrl("file:///C:/Users/Asus%20ROG%20Strix%20GL703/OneDrive/Desktop/test-bot.html");
-//        homePages.openUrl("D:\\telegram download\\link.html");
+        homePages.openUrl("D:\\telegram download\\link.html");
         homePages.clickToURL();
     }
 
@@ -111,21 +110,19 @@ public class HomeSteps implements ExecuteDatabase {
     }
 
     @Step
-    @Override
-    public ArrayList<String> getInformationInDB() {
-        ArrayList<String> listNumber = new ArrayList<>();
+    public HashMap<String, String> getInformationInDB() {
+        HashMap<String, String> listNumber = new HashMap<>();
         String sql = """
                 select username, current_point
                 from "user"
-                where username like 'bruno20699'
+                where username like 'namae_jeff'
                 """;
         try {
             Connection conn = PostgreJDBC.getPostgreConnection();
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                listNumber.add(rs.getString("username"));
-                listNumber.add(rs.getString("current_point"));
+                listNumber.put(rs.getString("username"), rs.getString("current_point"));
             }
         } catch (Exception e) {
             e.printStackTrace();

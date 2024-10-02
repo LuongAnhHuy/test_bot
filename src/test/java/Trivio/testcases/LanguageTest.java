@@ -26,21 +26,21 @@ class LanguageTest extends BaseTest {
     }
 
     @Test
-    void testVietnameseLanguage() {
+    void TC01_testVietnameseLanguage() {
         homeSteps.clickLanguageButton();
         languageSteps.clickToChooseLanguage(LANGUAGE_VIETNAMESE[0]);
         verifyEquals(homeSteps.getLanguageButtonText(), LANGUAGE_VIETNAMESE[1]);
     }
 
     @Test
-    void testEnglishLanguage() {
+    void TC02_testEnglishLanguage() {
         homeSteps.clickLanguageButton();
         languageSteps.clickToChooseLanguage(LANGUAGE_ENGLISH[0]);
         verifyEquals(homeSteps.getLanguageButtonText(), LANGUAGE_ENGLISH[1]);
     }
 
     @Test
-    void testRussiaLanguage() {
+    void TC03_testRussiaLanguage() {
         homeSteps.clickLanguageButton();
         languageSteps.clickToChooseLanguage(LANGUAGE_RUSSIA[0]);
         verifyEquals(homeSteps.getLanguageButtonText(), LANGUAGE_RUSSIA[1]);
