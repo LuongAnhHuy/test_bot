@@ -92,7 +92,7 @@ public class HomePages extends BasePage {
 
     public void clickToClaimDailyButton() {
         waitUntilElementClickableByExplicit(claimDailyButton);
-        clickToElement(claimDailyButton);
+        clickToElementByJS(claimDailyButton);
     }
 
     public boolean isDisplayedClaimAfterText() {

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class PostgreJDBC {
-    public static Connection getConnection() {
+    public static Connection getPostgreConnection() {
         String hostName = "10.241.73.232";
         String userName = "its";
         String password = "Password123";
@@ -16,8 +16,6 @@ public class PostgreJDBC {
         Connection conn = null;
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-            // Cấu trúc URL Connection dành cho SQL Server
             String connectionURL = "jdbc:postgresql://" + hostName + ":5423/" + database;
             conn = DriverManager.getConnection(connectionURL, userName, password);
         } catch (Exception e) {
