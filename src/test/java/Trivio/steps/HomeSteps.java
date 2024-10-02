@@ -1,9 +1,16 @@
 package Trivio.steps;
 
+import Trivio.common.ExecuteDatabase;
+import Trivio.common.PostgreJDBC;
 import Trivio.pages.HomePages;
 import net.serenitybdd.annotations.Step;
 
-public class HomeSteps {
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class HomeSteps implements ExecuteDatabase {
     HomePages homePages;
 
     private final Integer coinMax = 1;
@@ -103,4 +110,26 @@ public class HomeSteps {
         homePages.clickHomeButton();
     }
 
+    @Step
+    @Override
+    public ArrayList<String> getInformationInDB() {
+        ArrayList<String> listNumber = new ArrayList<>();
+        String sql = """
+                select username, current_point
+                from "user"
+                where username like 'bruno20699'
+                """;
+        try {
+            Connection conn = PostgreJDBC.getPostgreConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                listNumber.add(rs.getString("username"));
+                listNumber.add(rs.getString("current_point"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listNumber;
+    }
 }

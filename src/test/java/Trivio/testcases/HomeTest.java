@@ -29,6 +29,7 @@ public class HomeTest extends BaseTest {
             Thread.sleep(5000);
             if (homeSteps.isDisplayedDailyHeader()) {
                 homeSteps.clickToClaimDailyButton();
+                Thread.sleep(3000);
             } else {
                 throw new NoSuchElementException("There is no daily header");
             }
@@ -62,8 +63,9 @@ public class HomeTest extends BaseTest {
                 homeSteps.clickToButton();
             }
         }
-        if (homeSteps.isDisplayedClaimAfterText()) {
+//        if (homeSteps.isDisplayedClaimAfterText()) {
+            System.out.println("Status claim button is: " + homeSteps.isEnabledClaimButton());
             verifyFalse(homeSteps.isEnabledClaimButton());
-        }
+//        }
     }
 }
