@@ -110,6 +110,7 @@ public class HomeSteps {
         String sql = """
                 select username, current_point
                 from "user"
+                where username like 'bruno20699'
                 """;
         try {
             Connection conn = PostgreJDBC.getPostgreConnection();
