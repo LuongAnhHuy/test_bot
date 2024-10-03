@@ -26,7 +26,7 @@ public class HomeTest extends BaseTest {
     @Test
     public void TC_01_Claim_Daily_Reward() throws InterruptedException {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             if (homeSteps.isDisplayedDailyHeader()) {
                 homeSteps.clickToClaimDailyButton();
                 Thread.sleep(3000);
@@ -63,9 +63,8 @@ public class HomeTest extends BaseTest {
                 homeSteps.clickToButton();
             }
         }
-//        if (homeSteps.isDisplayedClaimAfterText()) {
-            System.out.println("Status claim button is: " + homeSteps.isEnabledClaimButton());
+        if (homeSteps.isDisplayedClaimAfterText()){
             verifyFalse(homeSteps.isEnabledClaimButton());
-//        }
+        }
     }
 }
