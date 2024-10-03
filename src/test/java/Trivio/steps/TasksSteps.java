@@ -1,10 +1,19 @@
 package Trivio.steps;
 
+
+import Trivio.common.DatabaseUtil;
+import Trivio.common.PostgreJDBC;
 import Trivio.pages.TasksPages;
 import net.serenitybdd.annotations.Step;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
 
-public class TasksSteps {
+
+public class TasksSteps{
     TasksPages tasksPages;
 
     @Step
@@ -49,12 +58,42 @@ public class TasksSteps {
 
     @Step
     public void closeTasksPopup() {
-        tasksPages.clickOutsideTaskPopupButton();
+        tasksPages.closeTaskPopupButton();
     }
 
     @Step
     public boolean checkTaskDone(String taskName) {
         return tasksPages.checkTaskDone(taskName);
+    }
+
+    @Step
+    public void clearTaskFromDB(String userID) {
+        Connection conn = PostgreJDBC.getPostgreConnection();
+        try {
+            Statement statement = conn.createStatement();
+            String query = "DELETE FROM \"trivio-be\".public.user_task_finished WHERE user_id = " + userID;
+            statement.executeUpdate(query);
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    @Step
+    public HashMap<String, String> getInformationInDB() {
+        DatabaseUtil databaseUtil = new DatabaseUtil();
+        return databaseUtil.executeQuery(
+                "SELECT title, reward_number FROM \"trivio-be\".public.task",
+                rs -> {
+                    HashMap<String, String> result = new HashMap<>();
+                    while (rs.next()) {
+                        result.put(rs.getString("title"), rs.getString("reward_number"));
+                    }
+                    return result;
+                }
+        );
     }
 
 }

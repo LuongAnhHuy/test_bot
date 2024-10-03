@@ -72,13 +72,8 @@ public class HomePages extends BasePage {
     }
 
     public boolean isEnabledClaimButton() {
-        waitUntilElementClickableByExplicit(claimButton);
+        waitUntilElementVisibleByExplicit(claimButton);
         return claimButton.isEnabled();
-    }
-
-    public boolean isNotEnabledClaimButton() {
-        waitUntilElementClickableByExplicit(claimButton);
-        return !claimButton.isEnabled();
     }
 
     public void clickToClaimButton() {

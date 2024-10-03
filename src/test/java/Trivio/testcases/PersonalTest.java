@@ -26,7 +26,7 @@ class PersonalTest extends BaseTest {
     }
 
     @Test
-    void testPersonalPage(){
+    void TC01_testPersonalPage(){
         if (homeSteps.isDisplayedNameText()) {
             homeSteps.clickNameText();
         }
