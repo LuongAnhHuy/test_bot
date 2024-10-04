@@ -35,9 +35,9 @@ class T4_TasksTest extends BaseTest{
     @Test
     void TC_01_do_task_and_get_reward() {
         taskList = tasksSteps.getInformationInDB();
-        List<String> getCoinsFromDB = new ArrayList<>(homeSteps.getInformationInDB().keySet());
+        List<String> getCoinsFromDB = new ArrayList<>(homeSteps.getDefaultCoinInDatabase().keySet());
         int currentCoinsUI = homeSteps.getDefaultCoin();
-        int currentCoinsDB = Integer.parseInt(homeSteps.getInformationInDB().get(getCoinsFromDB.get(0)));
+        int currentCoinsDB = Integer.parseInt(homeSteps.getDefaultCoinInDatabase().get(getCoinsFromDB.get(0)));
         verifyEquals(currentCoinsDB, currentCoinsUI);
 
         homeSteps.clickTasksButton();
@@ -56,8 +56,8 @@ class T4_TasksTest extends BaseTest{
             waitForTaskDone(2500);
             tasksSteps.closeTasksPopup();
             homeSteps.clickHomeButton();
-            verifyEquals(currentCoinsDB + Integer.parseInt(taskReward), Integer.parseInt(homeSteps.getInformationInDB().get(getCoinsFromDB.get(0))));
-            currentCoinsDB = Integer.parseInt(homeSteps.getInformationInDB().get(getCoinsFromDB.get(0)));
+            verifyEquals(currentCoinsDB + Integer.parseInt(taskReward), Integer.parseInt(homeSteps.getDefaultCoinInDatabase().get(getCoinsFromDB.get(0))));
+            currentCoinsDB = Integer.parseInt(homeSteps.getDefaultCoinInDatabase().get(getCoinsFromDB.get(0)));
             verifyEquals(currentCoinsUI + Integer.parseInt(taskReward), homeSteps.getDefaultCoin());
             currentCoinsUI = homeSteps.getDefaultCoin();
             homeSteps.clickTasksButton();

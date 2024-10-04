@@ -1,14 +1,12 @@
 package Trivio.steps;
 
 
-import Trivio.common.DatabaseUtil;
-import Trivio.common.PostgreJDBC;
+import Trivio.database.DatabaseUtil;
+import Trivio.database.PostgreJDBC;
 import Trivio.pages.TasksPages;
 import net.serenitybdd.annotations.Step;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 

@@ -1,6 +1,6 @@
 package Trivio.steps;
 
-import Trivio.common.PostgreJDBC;
+import Trivio.database.PostgreJDBC;
 import Trivio.pages.HomePages;
 import net.serenitybdd.annotations.Step;
 
@@ -16,7 +16,7 @@ public class HomeSteps {
 
     @Step
     public Integer getDefaultCoin() {
-        return Integer.parseInt(homePages.getTextCoin().replace(",",""));
+        return Integer.parseInt(getDefaultCoinInDatabase().get("bruno20699").replace(",",""));
     }
 
     @Step
@@ -104,8 +104,7 @@ public class HomeSteps {
         homePages.clickHomeButton();
     }
 
-    @Step
-    public HashMap<String, String> getInformationInDB() {
+    public HashMap<String, String> getDefaultCoinInDatabase() {
         HashMap<String, String> listNumber = new HashMap<>();
         String sql = """
                 select username, current_point
