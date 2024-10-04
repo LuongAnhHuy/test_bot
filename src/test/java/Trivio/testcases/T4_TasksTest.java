@@ -16,7 +16,7 @@ import java.util.List;
 import static Trivio.testdatas.DataString.*;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-class TasksTest extends BaseTest{
+class T4_TasksTest extends BaseTest{
     @Steps
     HomeSteps homeSteps;
 

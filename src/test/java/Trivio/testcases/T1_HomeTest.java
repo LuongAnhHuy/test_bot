@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 //@RunWith(SerenityRunner.class)
 @ExtendWith(SerenityJUnit5Extension.class)
-public class HomeTest extends BaseTest {
+public class T1_HomeTest extends BaseTest {
 
     @Steps
     HomeSteps homeSteps;
@@ -41,10 +41,8 @@ public class HomeTest extends BaseTest {
     @Test
     public void TC_02_Tap_and_Get_Coins() {
         currentCoins = homeSteps.currentCoins();
-        if (homeSteps.isDisplayedNameText()) {
-            if (homeSteps.getNameText().equals("Anh Huy Luong")) {
-                homeSteps.clickToButton();
-            }
+        if (homeSteps.isDisplayedNameText() && verifyEquals("Anh Huy Luong", homeSteps.getNameText())) {
+            homeSteps.clickToButton();
         }
 
         if (homeSteps.isEnabledClaimButton()) {
@@ -58,12 +56,10 @@ public class HomeTest extends BaseTest {
     @Test
     public void TC_03_Tap_and_Get_Coins_When_Not_Full_Time() {
         currentCoins = homeSteps.currentCoins();
-        if (homeSteps.isDisplayedNameText()) {
-            if (homeSteps.getNameText().equals("Anh Huy Luong")) {
-                homeSteps.clickToButton();
-            }
+        if (homeSteps.isDisplayedNameText() && verifyEquals("Anh Huy Luong", homeSteps.getNameText())) {
+            homeSteps.clickToButton();
         }
-        if (homeSteps.isDisplayedClaimAfterText()){
+        if (homeSteps.isDisplayedClaimAfterText()) {
             verifyFalse(homeSteps.isEnabledClaimButton());
         }
     }

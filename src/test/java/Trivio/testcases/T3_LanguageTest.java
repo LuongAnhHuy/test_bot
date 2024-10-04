@@ -12,7 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import static Trivio.testdatas.DataString.*;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-class LanguageTest extends BaseTest {
+class T3_LanguageTest extends BaseTest {
     @Steps
     HomeSteps homeSteps;
 
