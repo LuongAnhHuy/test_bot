@@ -15,7 +15,7 @@ public class PostgreJDBC {
     private static Connection getPostgreConnection(String hostName, String userName, String password, String database) {
         Connection conn = null;
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Class.forName("org.postgresql.Driver");
             String connectionURL = "jdbc:postgresql://" + hostName + ":5423/" + database;
             conn = DriverManager.getConnection(connectionURL, userName, password);
         } catch (Exception e) {
